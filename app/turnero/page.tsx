@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
@@ -31,29 +32,45 @@ export default async function TurneroPage() {
   return (
     <>
       <FloatingNav />
-      <main className="min-h-screen bg-cream-50 px-4 pb-24 pt-28">
+
+      <main className="relative min-h-screen px-4 pb-24 pt-28">
+        {/* Background image */}
+        <div className="fixed inset-0 -z-10">
+          <Image
+            src="/bg-turnero.png"
+            alt=""
+            fill
+            priority
+            quality={85}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Warm semi-transparent overlay so the form stays legible */}
+          <div className="absolute inset-0 bg-terra-950/55 backdrop-blur-[2px]" />
+        </div>
+
         <div className="mx-auto max-w-3xl">
           <Link
             href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm text-stone-400 transition-colors hover:text-terra-600"
+            className="mb-8 inline-flex items-center gap-2 text-sm text-cream-200/70 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
             Volver al inicio
           </Link>
 
           <div className="mb-12">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-terra-500">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-terra-300">
               Agenda online
             </p>
-            <h1 className="font-heading text-4xl font-bold text-stone-800 sm:text-5xl">
+            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Reservá tu turno
             </h1>
-            <p className="mt-3 text-sm text-stone-400">
+            <p className="mt-3 text-sm text-cream-200/60">
               Seguí los pasos y confirmá tu clase en minutos.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-cream-200 bg-white p-6 shadow-sm sm:p-10">
+          <div className="rounded-3xl border border-white/10 bg-white/95 p-6 shadow-2xl shadow-black/30 backdrop-blur-sm sm:p-10">
             <BookingWizard
               services={services}
               confirmationMsg={confirmationMsg}
