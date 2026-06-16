@@ -22,6 +22,10 @@ export function StepConfirm({
 }: Props) {
   const message = buildWhatsAppMessage(confirmationMsg, {
     nombre: client.name,
+    edad: client.age,
+    genero: client.gender,
+    email: client.email,
+    telefono: client.phone,
     servicio: service.name,
     fecha: formatDateES(date),
     hora: `${startTime} – ${endTime}`,

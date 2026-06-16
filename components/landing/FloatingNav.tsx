@@ -34,13 +34,15 @@ export function FloatingNav() {
     >
       <nav className="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 sm:h-20">
         <Link href="/" className="flex items-center gap-3 group">
-          <Image
-            src="/logo.jpg"
-            alt="Padma Yoga"
-            width={36}
-            height={36}
-            className="rounded-full ring-1 ring-white/20 group-hover:ring-terra-400/60 transition-all duration-300"
-          />
+          <div className="overflow-hidden rounded-lg bg-white/90 p-1 shadow-md ring-1 ring-white/20 transition-all duration-300 group-hover:ring-terra-400/60">
+            <Image
+              src="/logo.jpeg"
+              alt="Padma Yoga Tai"
+              width={44}
+              height={44}
+              className="object-contain"
+            />
+          </div>
           <span className="font-semibold text-sm tracking-wider text-white drop-shadow-sm">
             Padma Yoga
           </span>

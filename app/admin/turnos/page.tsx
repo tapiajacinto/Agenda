@@ -280,7 +280,12 @@ export default function TurnosPage() {
     if (!b.clients) return '#'
     const date = new Date(b.booking_date + 'T00:00:00')
     const msg = buildWhatsAppMessage(confirmMsg, {
-      nombre: b.clients.name, servicio: b.services?.name ?? '',
+      nombre: b.clients.name,
+      edad: b.clients.age,
+      genero: b.clients.gender,
+      email: b.clients.email,
+      telefono: b.clients.phone,
+      servicio: b.services?.name ?? '',
       fecha: format(date, "EEEE d 'de' MMMM", { locale: es }),
       hora: `${b.start_time.slice(0, 5)} – ${b.end_time.slice(0, 5)}`,
     })

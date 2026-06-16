@@ -39,13 +39,56 @@ export function formatDateES(date: Date): string {
   return `${days[date.getDay()]} ${date.getDate()} de ${months[date.getMonth()]} de ${date.getFullYear()}`
 }
 
+const GENDER_LABELS: Record<string, string> = {
+  'femenino': 'Femenino',
+  'masculino': 'Masculino',
+  'no-binario': 'No binario',
+  'prefiero-no-decir': 'Prefiero no decirlo',
+}
+
 export function buildWhatsAppMessage(
   template: string,
-  params: { nombre: string; servicio: string; fecha: string; hora: string }
+  params: {
+    nombre: string
+    edad: number
+    genero: string
+    email: string
+    telefono: string
+    servicio: string
+    fecha: string
+    hora: string
+  }
 ): string {
-  return template
-    .replace('{nombre}', params.nombre)
-    .replace('{servicio}', params.servicio)
-    .replace('{fecha}', params.fecha)
-    .replace('{hora}', params.hora)
+  const generoLabel = GENDER_LABELS[params.genero] ?? params.genero
+
+  const lines = [
+    `🌸 *NUEVO TURNO — Padma Yoga-Tai*`,
+    ``,
+    `*Datos del cliente*`,
+    `👤 Nombre: ${params.nombre}`,
+    `🎂 Edad: ${params.edad} años`,
+    `🏷️ Género: ${generoLabel}`,
+    `📧 Email: ${params.email}`,
+    `📱 Teléfono: ${params.telefono}`,
+    ``,
+    `*Reserva*`,
+    `🧘 Servicio: ${params.servicio}`,
+    `📅 Fecha: ${params.fecha}`,
+    `🕐 Horario: ${params.hora}`,
+    ``,
+    `✅ Confirmado desde la agenda online.`,
+  ]
+
+  if (template) {
+    lines.push(
+      ``,
+      template
+        .replace('{nombre}', params.nombre)
+        .replace('{servicio}', params.servicio)
+        .replace('{fecha}', params.fecha)
+        .replace('{hora}', params.hora)
+    )
+  }
+
+  return lines.join('\n')
 }

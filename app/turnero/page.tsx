@@ -58,7 +58,20 @@ export default async function TurneroPage() {
             Volver al inicio
           </Link>
 
-          <div className="mb-12">
+          <div className="mb-12 text-center">
+            <div className="mb-7 flex justify-center">
+              <div className="relative">
+                <div className="absolute -inset-5 rounded-3xl bg-terra-400/20 blur-2xl" />
+                <div className="relative overflow-hidden rounded-2xl bg-white/96 px-4 py-3 shadow-xl shadow-terra-950/40 ring-1 ring-white/25">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="Padma Yoga Tai logo"
+                    width={130}
+                    height={130}
+                  />
+                </div>
+              </div>
+            </div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-terra-300">
               Agenda online
             </p>

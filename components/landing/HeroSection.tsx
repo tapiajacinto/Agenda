@@ -60,14 +60,17 @@ export function HeroSection({ subtitle, address }: HeroProps) {
           className="mb-8 flex justify-center"
         >
           <div className="relative">
-            <div className="absolute inset-0 scale-[2.2] rounded-full bg-terra-400/35 blur-2xl" />
-            <Image
-              src="/logo.jpg"
-              alt="Padma Yoga Tai logo"
-              width={92}
-              height={92}
-              className="relative rounded-full shadow-2xl ring-2 ring-white/20"
-            />
+            <div className="absolute -inset-6 rounded-3xl bg-terra-400/25 blur-3xl" />
+            <div className="relative overflow-hidden rounded-2xl bg-white/96 px-5 py-4 shadow-2xl shadow-terra-950/50 ring-1 ring-white/30">
+              <Image
+                src="/logo.jpeg"
+                alt="Padma Yoga Tai logo"
+                width={200}
+                height={200}
+                className="relative"
+                priority
+              />
+            </div>
           </div>
         </div>
 
