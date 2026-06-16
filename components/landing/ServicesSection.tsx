@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import * as LucideIcons from 'lucide-react'
-import type { LucideProps } from 'lucide-react'
 import type { Service } from '@/types'
 
 /* Map DB icon strings → emoji fallbacks for yoga/wellness context */
@@ -36,7 +35,8 @@ function ServiceIcon({ icon }: { icon: string }) {
 
   /* Try Lucide dynamic lookup */
   const name = toPascalCase(icon)
-  const Icon = (LucideIcons as Record<string, React.ComponentType<LucideProps>>)[name]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Icon = (LucideIcons as Record<string, any>)[name]
   if (Icon) return <Icon className="h-8 w-8 text-terra-600" strokeWidth={1.5} />
 
   /* Emoji fallback map */
