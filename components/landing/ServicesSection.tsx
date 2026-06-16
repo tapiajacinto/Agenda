@@ -1,24 +1,28 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import * as LucideIcons from 'lucide-react'
+import {
+  Flower2, HandHeart, Heart, Leaf, Sparkles, Star,
+  Sun, Moon, Wind, Mountain, Feather, Flame, Zap,
+  type LucideIcon,
+} from 'lucide-react'
 import type { Service } from '@/types'
 
-/* Map DB icon strings → emoji fallbacks for yoga/wellness context */
-const EMOJI_FALLBACK: Record<string, string> = {
-  lotus: '🪷',
-  hands: '🤲',
-  heart: '💜',
-  leaf: '🌿',
-  sparkles: '✨',
-  star: '⭐',
-  flower: '🌸',
-  sun: '☀️',
-  moon: '🌙',
-  wind: '🌬️',
-  mountain: '⛰️',
-  feather: '🪶',
-  flame: '🔥',
-  activity: '⚡',
+const ICON_FALLBACK: Record<string, LucideIcon> = {
+  lotus:    Flower2,
+  hands:    HandHeart,
+  heart:    Heart,
+  leaf:     Leaf,
+  sparkles: Sparkles,
+  star:     Star,
+  flower:   Flower2,
+  sun:      Sun,
+  moon:     Moon,
+  wind:     Wind,
+  mountain: Mountain,
+  feather:  Feather,
+  flame:    Flame,
+  activity: Zap,
 }
 
 function toPascalCase(s: string) {
@@ -26,12 +30,7 @@ function toPascalCase(s: string) {
 }
 
 function ServiceIcon({ icon }: { icon: string }) {
-  if (!icon) return <span className="text-4xl">✨</span>
-
-  /* Already an emoji or multi-byte char */
-  if ([...icon].some(c => c.codePointAt(0)! > 127)) {
-    return <span className="text-4xl">{icon}</span>
-  }
+  if (!icon) return <Sparkles className="h-8 w-8 text-terra-600" strokeWidth={1.5} />
 
   /* Try Lucide dynamic lookup */
   const name = toPascalCase(icon)
@@ -39,9 +38,11 @@ function ServiceIcon({ icon }: { icon: string }) {
   const Icon = (LucideIcons as Record<string, any>)[name]
   if (Icon) return <Icon className="h-8 w-8 text-terra-600" strokeWidth={1.5} />
 
-  /* Emoji fallback map */
-  const emoji = EMOJI_FALLBACK[icon.toLowerCase()]
-  return <span className="text-4xl">{emoji ?? '✨'}</span>
+  /* Named fallback map */
+  const FallbackIcon = ICON_FALLBACK[icon.toLowerCase()]
+  if (FallbackIcon) return <FallbackIcon className="h-8 w-8 text-terra-600" strokeWidth={1.5} />
+
+  return <Sparkles className="h-8 w-8 text-terra-600" strokeWidth={1.5} />
 }
 
 function useInView(threshold = 0.15) {

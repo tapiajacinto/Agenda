@@ -4,7 +4,7 @@ import { FloatingNav } from '@/components/landing/FloatingNav'
 import { FloatingCTA } from '@/components/landing/FloatingCTA'
 import { HeroSection } from '@/components/landing/HeroSection'
 import { ServicesSection } from '@/components/landing/ServicesSection'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Sun, Moon } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Padma Yoga Espacio – Yoga, Tai Chi y Bienestar en Argentina',
@@ -135,13 +135,17 @@ export default async function HomePage() {
           </div>
           <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-cream-200 bg-white p-7 shadow-sm">
-              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-terra-100 text-base">🌤</div>
+              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-terra-100">
+                <Sun className="h-4 w-4 text-terra-600" strokeWidth={1.5} />
+              </div>
               <p className="mb-3 font-semibold text-stone-800">Lunes y Miércoles</p>
               <p className="text-sm text-stone-500">15:00 – 16:00</p>
               <p className="text-sm text-stone-500">16:00 – 17:00</p>
             </div>
             <div className="rounded-2xl border border-cream-200 bg-white p-7 shadow-sm">
-              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-terra-100 text-base">🌙</div>
+              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-terra-100">
+                <Moon className="h-4 w-4 text-terra-600" strokeWidth={1.5} />
+              </div>
               <p className="mb-3 font-semibold text-stone-800">Martes y Jueves</p>
               <p className="text-sm text-stone-500">19:00 – 20:00</p>
               <p className="text-sm text-stone-500">20:00 – 21:00</p>

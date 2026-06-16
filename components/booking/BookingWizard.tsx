@@ -9,7 +9,7 @@ import { StepClient } from './StepClient'
 import { StepSchedule } from './StepSchedule'
 import { StepConfirm } from './StepConfirm'
 import { Button } from '@/components/ui/button'
-import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Loader2, Check } from 'lucide-react'
 import { toast } from 'sonner'
 
 const STEPS: BookingStep[] = ['service', 'client', 'schedule', 'confirm']
@@ -104,7 +104,7 @@ export function BookingWizard({ services, confirmationMsg, businessPhone }: Prop
               ${i < stepIndex ? 'bg-terra-500 border-terra-500 text-white'
                 : i === stepIndex ? 'border-terra-500 text-terra-600 bg-white'
                 : 'border-stone-200 text-stone-300 bg-white'}`}>
-              {i < stepIndex ? '✓' : i + 1}
+              {i < stepIndex ? <Check className="w-4 h-4" /> : i + 1}
             </div>
             <span className={`text-xs font-medium hidden sm:block ${i === stepIndex ? 'text-terra-700' : 'text-stone-400'}`}>
               {label}
