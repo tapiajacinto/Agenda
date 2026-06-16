@@ -1,10 +1,13 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export function FloatingNav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -12,8 +15,11 @@ export function FloatingNav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToServices = (e: React.MouseEvent) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })
+    }
     setMenuOpen(false)
   }
 
@@ -27,11 +33,7 @@ export function FloatingNav() {
       style={{ viewTransitionName: 'site-header' }}
     >
       <nav className="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 sm:h-20">
-        <button
-          onClick={() => scrollTo('hero')}
-          className="flex items-center gap-3 group"
-          aria-label="Ir al inicio"
-        >
+        <Link href="/" className="flex items-center gap-3 group">
           <Image
             src="/logo.jpg"
             alt="Padma Yoga"
@@ -42,28 +44,30 @@ export function FloatingNav() {
           <span className="font-semibold text-sm tracking-wider text-white drop-shadow-sm">
             Padma Yoga
           </span>
-        </button>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden sm:flex items-center gap-8">
-          {[
-            { label: 'Servicios', id: 'servicios' },
-            { label: 'Nosotros', id: 'about' },
-          ].map(({ label, id }) => (
-            <button
-              key={id}
-              onClick={() => scrollTo(id)}
-              className="text-white/70 hover:text-white text-sm font-medium tracking-wide transition-colors duration-200"
-            >
-              {label}
-            </button>
-          ))}
-          <button
-            onClick={() => scrollTo('reservar')}
+          <Link
+            href="/#servicios"
+            onClick={scrollToServices}
+            className="text-white/70 hover:text-white text-sm font-medium tracking-wide transition-colors duration-200"
+          >
+            Servicios
+          </Link>
+          <Link
+            href="/nosotros"
+            onClick={() => setMenuOpen(false)}
+            className="text-white/70 hover:text-white text-sm font-medium tracking-wide transition-colors duration-200"
+          >
+            Nosotros
+          </Link>
+          <Link
+            href="/turnero"
             className="px-5 py-2.5 bg-terra-500 hover:bg-terra-400 text-white text-sm font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-terra-900/40"
           >
             Reservar turno
-          </button>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -73,44 +77,36 @@ export function FloatingNav() {
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
         >
-          <span
-            className={`block h-0.5 w-5 bg-current origin-center transition-all duration-300 ${
-              menuOpen ? 'rotate-45 translate-y-2' : ''
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-5 bg-current transition-all duration-300 ${
-              menuOpen ? 'opacity-0 scale-x-0' : ''
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-5 bg-current origin-center transition-all duration-300 ${
-              menuOpen ? '-rotate-45 -translate-y-2' : ''
-            }`}
-          />
+          <span className={`block h-0.5 w-5 bg-current origin-center transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
+          <span className={`block h-0.5 w-5 bg-current origin-center transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </nav>
 
       {/* Mobile drawer */}
-      <div
-        className={`sm:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="bg-terra-950/95 backdrop-blur-xl px-5 pb-4 flex flex-col gap-0">
-          {[
-            { label: 'Servicios', id: 'servicios' },
-            { label: 'Nosotros', id: 'about' },
-            { label: 'Reservar turno', id: 'reservar' },
-          ].map(({ label, id }) => (
-            <button
-              key={id}
-              onClick={() => scrollTo(id)}
-              className="w-full text-left py-3.5 text-cream-200 hover:text-white text-sm font-medium border-b border-white/10 last:border-0 transition-colors duration-200"
-            >
-              {label}
-            </button>
-          ))}
+      <div className={`sm:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="bg-terra-950/95 backdrop-blur-xl px-5 pb-4 flex flex-col">
+          <Link
+            href="/#servicios"
+            onClick={scrollToServices}
+            className="w-full text-left py-3.5 text-cream-200 hover:text-white text-sm font-medium border-b border-white/10 transition-colors duration-200"
+          >
+            Servicios
+          </Link>
+          <Link
+            href="/nosotros"
+            onClick={() => setMenuOpen(false)}
+            className="w-full text-left py-3.5 text-cream-200 hover:text-white text-sm font-medium border-b border-white/10 transition-colors duration-200"
+          >
+            Nosotros
+          </Link>
+          <Link
+            href="/turnero"
+            onClick={() => setMenuOpen(false)}
+            className="w-full text-left py-3.5 text-cream-200 hover:text-white text-sm font-medium transition-colors duration-200"
+          >
+            Reservar turno
+          </Link>
         </div>
       </div>
     </header>

@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { MapPin, ChevronDown } from 'lucide-react'
 
 interface HeroProps {
@@ -109,13 +110,13 @@ export function HeroSection({ subtitle, address }: HeroProps) {
 
         {/* CTAs */}
         <div style={t(720)} className="mb-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <button
-            onClick={() => scrollTo('reservar')}
+          <Link
+            href="/turnero"
             className="group relative overflow-hidden rounded-full bg-terra-500 px-9 py-4 text-sm font-bold tracking-wide text-white shadow-2xl shadow-terra-900/60 transition-all duration-300 hover:scale-105 hover:shadow-terra-500/30"
           >
             <span className="relative z-10">Reservá tu turno</span>
             <div className="absolute inset-0 translate-x-full bg-gradient-to-r from-terra-400 to-terra-300 transition-transform duration-500 group-hover:translate-x-0" />
-          </button>
+          </Link>
           <button
             onClick={() => scrollTo('servicios')}
             className="rounded-full border border-white/25 px-9 py-4 text-sm font-semibold tracking-wide text-white/85 backdrop-blur-sm transition-all duration-300 hover:border-white/45 hover:bg-white/10 hover:text-white"
