@@ -126,11 +126,13 @@ export default function TurnosPage() {
                     <div className="flex gap-1 shrink-0">
                       {b.status === 'confirmed' && (
                         <>
-                          <a href={getWaLink(b)} target="_blank" rel="noopener noreferrer">
-                            <Button variant="ghost" size="icon" title="Enviar WhatsApp">
-                              <MessageCircle className="w-4 h-4 text-green-600" />
-                            </Button>
-                          </a>
+                          <button
+                            onClick={() => window.open(getWaLink(b), '_blank')}
+                            title="Enviar WhatsApp"
+                            className="p-2 rounded-md hover:bg-stone-100 transition-colors"
+                          >
+                            <MessageCircle className="w-4 h-4 text-green-600" />
+                          </button>
                           <Button
                             variant="ghost" size="icon"
                             onClick={() => cancel(b.id)}
