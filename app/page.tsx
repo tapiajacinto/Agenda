@@ -1,6 +1,7 @@
+import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
 import { BookingWizard } from '@/components/booking/BookingWizard'
-import { Flower2, MapPin, ExternalLink } from 'lucide-react'
+import { MapPin, ExternalLink } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 
 async function getData() {
@@ -43,9 +44,14 @@ export default async function HomePage() {
         }} />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="flex justify-center mb-6">
-            <div className="p-4 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Flower2 className="w-12 h-12 text-emerald-200" />
-            </div>
+            <Image
+              src="/logo.jpg"
+              alt="Padma Yoga-Tai logo"
+              width={160}
+              height={160}
+              className="rounded-full shadow-2xl"
+              priority
+            />
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             {welcomeTitle}
