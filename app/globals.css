@@ -5,6 +5,23 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ── Paleta tierra Padma Yoga-Tai ── */
+  --color-terra-50:  #fdf6f0;
+  --color-terra-100: #faeadb;
+  --color-terra-200: #f5d0b4;
+  --color-terra-300: #ecac7e;
+  --color-terra-400: #e08050;
+  --color-terra-500: #c4714a;
+  --color-terra-600: #a85c38;
+  --color-terra-700: #8b4730;
+  --color-terra-800: #713829;
+  --color-terra-900: #5c2e22;
+  --color-terra-950: #311410;
+  --color-cream-50:  #fdfaf5;
+  --color-cream-100: #f8f0e3;
+  --color-cream-200: #f0dfc5;
+  --color-cream-300: #e4c9a0;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);

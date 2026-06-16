@@ -101,16 +101,16 @@ export function BookingWizard({ services, confirmationMsg, businessPhone }: Prop
         {STEP_LABELS.map((label, i) => (
           <div key={label} className="flex items-center gap-2">
             <div className={`flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold border-2 transition-all
-              ${i < stepIndex ? 'bg-emerald-500 border-emerald-500 text-white'
-                : i === stepIndex ? 'border-emerald-500 text-emerald-600 bg-white'
+              ${i < stepIndex ? 'bg-terra-500 border-terra-500 text-white'
+                : i === stepIndex ? 'border-terra-500 text-terra-600 bg-white'
                 : 'border-stone-200 text-stone-300 bg-white'}`}>
               {i < stepIndex ? '✓' : i + 1}
             </div>
-            <span className={`text-xs font-medium hidden sm:block ${i === stepIndex ? 'text-emerald-700' : 'text-stone-400'}`}>
+            <span className={`text-xs font-medium hidden sm:block ${i === stepIndex ? 'text-terra-700' : 'text-stone-400'}`}>
               {label}
             </span>
             {i < STEP_LABELS.length - 1 && (
-              <div className={`h-0.5 w-6 sm:w-12 ${i < stepIndex ? 'bg-emerald-500' : 'bg-stone-200'}`} />
+              <div className={`h-0.5 w-6 sm:w-12 ${i < stepIndex ? 'bg-terra-500' : 'bg-stone-200'}`} />
             )}
           </div>
         ))}
@@ -155,7 +155,7 @@ export function BookingWizard({ services, confirmationMsg, businessPhone }: Prop
           <Button
             onClick={next}
             disabled={!canNext() || loading}
-            className="gap-1 bg-emerald-600 hover:bg-emerald-700 text-white"
+            className="gap-1 bg-terra-600 hover:bg-terra-700 text-white"
           >
             {loading && <Loader2 className="w-4 h-4 animate-spin" />}
             {step === 'confirm' ? 'Confirmar turno' : 'Siguiente'}

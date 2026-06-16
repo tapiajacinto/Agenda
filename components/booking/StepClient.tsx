@@ -85,7 +85,7 @@ export function StepClient({ client, onChange }: Props) {
       </div>
 
       <div className="flex items-center gap-2 mt-6 p-3 bg-stone-50 rounded-lg border border-stone-200">
-        <MapPin className="w-4 h-4 text-emerald-600 shrink-0" />
+        <MapPin className="w-4 h-4 text-terra-600 shrink-0" />
         <p className="text-xs text-stone-500">
           Nos encontramos en <span className="font-medium text-stone-700">Av. San Martín y esq. Catamarca</span>
         </p>

@@ -54,7 +54,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <StatCard icon={<Calendar className="w-5 h-5 text-emerald-600" />} label="Hoy" value={stats.today} />
+          <StatCard icon={<Calendar className="w-5 h-5 text-terra-600" />} label="Hoy" value={stats.today} />
           <StatCard icon={<Clock className="w-5 h-5 text-blue-600" />} label="Próximos" value={stats.upcoming} />
           <StatCard icon={<Users className="w-5 h-5 text-violet-600" />} label="Total futuros" value={stats.total} />
         </div>
@@ -70,8 +70,8 @@ export default function DashboardPage() {
               <div className="space-y-3">
                 {bookings.map((b) => (
                   <div key={b.id} className="flex items-center gap-4 p-3 bg-stone-50 rounded-lg">
-                    <div className="p-2 bg-emerald-100 rounded-lg">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <div className="p-2 bg-terra-100 rounded-lg">
+                      <CheckCircle2 className="w-4 h-4 text-terra-600" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-stone-800 truncate">{b.clients?.name ?? '—'}</p>

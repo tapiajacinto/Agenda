@@ -142,7 +142,7 @@ export default function ConfiguracionPage() {
           </CardContent>
         </Card>
 
-        <Button onClick={save} disabled={saving} className="bg-emerald-600 hover:bg-emerald-700 gap-2">
+        <Button onClick={save} disabled={saving} className="bg-terra-600 hover:bg-terra-700 gap-2">
           <Save className="w-4 h-4" />
           {saving ? 'Guardando...' : 'Guardar todo'}
         </Button>

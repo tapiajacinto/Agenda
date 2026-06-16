@@ -40,7 +40,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       )}>
         <div className="p-5 border-b border-stone-100 flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl shadow-sm">
+          <div className="p-2 bg-gradient-to-br from-terra-600 to-terra-800 rounded-xl shadow-sm">
             <Flower2 className="w-4 h-4 text-white" />
           </div>
           <div>
@@ -60,11 +60,11 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
                 className={cn(
                   'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all',
                   active
-                    ? 'bg-emerald-50 text-emerald-700 shadow-sm'
+                    ? 'bg-terra-50 text-terra-700 shadow-sm'
                     : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
                 )}
               >
-                <Icon className={cn('w-4 h-4', active ? 'text-emerald-600' : 'text-stone-400')} />
+                <Icon className={cn('w-4 h-4', active ? 'text-terra-600' : 'text-stone-400')} />
                 {label}
               </Link>
             )
@@ -81,7 +81,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           </button>
           <a
             href="/"
-            className="flex items-center gap-3 px-3 py-2 w-full rounded-xl text-xs text-stone-400 hover:text-emerald-600 transition-colors"
+            className="flex items-center gap-3 px-3 py-2 w-full rounded-xl text-xs text-stone-400 hover:text-terra-600 transition-colors"
           >
             ← Ver sitio principal
           </a>
@@ -99,7 +99,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <button onClick={() => setOpen(!open)} className="p-2 rounded-xl hover:bg-stone-100 transition-colors">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <div className="p-1.5 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg">
+          <div className="p-1.5 bg-gradient-to-br from-terra-600 to-terra-800 rounded-lg">
             <Flower2 className="w-4 h-4 text-white" />
           </div>
           <span className="font-semibold text-stone-800 text-sm">Padma Admin</span>

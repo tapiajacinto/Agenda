@@ -110,12 +110,12 @@ function DroppableSlot({ id, onClick }: { id: string; onClick: () => void }) {
       className={cn(
         'w-full h-full min-h-[68px] rounded-xl border-2 border-dashed transition-all flex items-center justify-center group',
         isOver
-          ? 'border-emerald-500 bg-emerald-100 scale-[1.02] shadow-md'
-          : 'border-stone-200 hover:border-emerald-300 hover:bg-emerald-50/40 cursor-pointer'
+          ? 'border-terra-500 bg-terra-100 scale-[1.02] shadow-md'
+          : 'border-stone-200 hover:border-terra-300 hover:bg-terra-50/40 cursor-pointer'
       )}
       onClick={onClick}
     >
-      <Plus className={cn('w-4 h-4 transition-colors', isOver ? 'text-emerald-600' : 'text-stone-300 group-hover:text-emerald-400')} />
+      <Plus className={cn('w-4 h-4 transition-colors', isOver ? 'text-terra-600' : 'text-stone-300 group-hover:text-terra-400')} />
     </div>
   )
 }
@@ -128,11 +128,11 @@ function DroppableSlotMobile({ id, onClick }: { id: string; onClick: () => void 
       onClick={onClick}
       className={cn(
         'flex-1 h-[72px] rounded-xl border-2 border-dashed transition-all flex items-center justify-center gap-2',
-        isOver ? 'border-emerald-500 bg-emerald-50' : 'border-stone-200 hover:border-emerald-300'
+        isOver ? 'border-terra-500 bg-terra-50' : 'border-stone-200 hover:border-terra-300'
       )}
     >
-      <Plus className={cn('w-4 h-4', isOver ? 'text-emerald-500' : 'text-stone-300')} />
-      <span className={cn('text-xs', isOver ? 'text-emerald-500' : 'text-stone-300')}>Disponible</span>
+      <Plus className={cn('w-4 h-4', isOver ? 'text-terra-500' : 'text-stone-300')} />
+      <span className={cn('text-xs', isOver ? 'text-terra-500' : 'text-stone-300')}>Disponible</span>
     </div>
   )
 }
@@ -364,11 +364,11 @@ export default function TurnosPage() {
                   <ChevronRight className="w-4 h-4 text-stone-600" />
                 </button>
               </div>
-              <button onClick={() => setWeekOffset(0)} className="text-xs text-emerald-600 font-medium hover:underline hidden sm:block">Hoy</button>
+              <button onClick={() => setWeekOffset(0)} className="text-xs text-terra-600 font-medium hover:underline hidden sm:block">Hoy</button>
             </div>
             <Button
               onClick={() => openNew()}
-              className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white shadow-sm gap-1.5 rounded-xl text-sm h-9 px-4"
+              className="bg-gradient-to-r from-terra-600 to-terra-800 hover:from-terra-700 hover:to-terra-900 text-white shadow-sm gap-1.5 rounded-xl text-sm h-9 px-4"
             >
               <Plus className="w-4 h-4" />
               <span className="hidden sm:inline">Nuevo turno</span>
@@ -389,21 +389,21 @@ export default function TurnosPage() {
                     onClick={() => setMobileDayIndex(i)}
                     className={cn(
                       'flex flex-col items-center py-3 transition-all border-b-2',
-                      active ? 'border-emerald-500' : 'border-transparent'
+                      active ? 'border-terra-500' : 'border-transparent'
                     )}
                   >
-                    <span className={cn('text-[10px] font-semibold uppercase tracking-wider', today ? 'text-emerald-500' : 'text-stone-400')}>
+                    <span className={cn('text-[10px] font-semibold uppercase tracking-wider', today ? 'text-terra-500' : 'text-stone-400')}>
                       {format(day, 'EEE', { locale: es })}
                     </span>
                     <span className={cn(
                       'text-xl font-bold mt-0.5 w-9 h-9 flex items-center justify-center rounded-full',
-                      today ? 'bg-emerald-500 text-white' : active ? 'text-stone-800' : 'text-stone-500'
+                      today ? 'bg-terra-500 text-white' : active ? 'text-stone-800' : 'text-stone-500'
                     )}>
                       {format(day, 'd')}
                     </span>
                     {/* Booking dot indicator */}
                     {HOURS.some(h => getBookingAt(day, h)) && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-terra-400 mt-1" />
                     )}
                   </button>
                 )
@@ -459,14 +459,14 @@ export default function TurnosPage() {
                 {weekDays.map(day => {
                   const today = isToday(day)
                   return (
-                    <div key={day.toISOString()} className={cn('p-4 text-center border-l border-stone-100', today && 'bg-emerald-50')}>
-                      <p className={cn('text-xs font-semibold uppercase tracking-wider', today ? 'text-emerald-600' : 'text-stone-400')}>
+                    <div key={day.toISOString()} className={cn('p-4 text-center border-l border-stone-100', today && 'bg-terra-50')}>
+                      <p className={cn('text-xs font-semibold uppercase tracking-wider', today ? 'text-terra-600' : 'text-stone-400')}>
                         {format(day, 'EEE', { locale: es })}
                       </p>
-                      <p className={cn('text-2xl font-bold mt-0.5', today ? 'text-emerald-600' : 'text-stone-800')}>
+                      <p className={cn('text-2xl font-bold mt-0.5', today ? 'text-terra-600' : 'text-stone-800')}>
                         {format(day, 'd')}
                       </p>
-                      {today && <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mx-auto mt-1" />}
+                      {today && <div className="w-1.5 h-1.5 rounded-full bg-terra-500 mx-auto mt-1" />}
                     </div>
                   )
                 })}
@@ -485,7 +485,7 @@ export default function TurnosPage() {
                     const isPast = isBefore(startOfDay(day), startOfDay(new Date()))
                     const id = slotId(day, hour)
                     return (
-                      <div key={day.toISOString()} className={cn('border-l border-stone-100 min-h-[80px] p-1.5', today && !booking && 'bg-emerald-50/20')}>
+                      <div key={day.toISOString()} className={cn('border-l border-stone-100 min-h-[80px] p-1.5', today && !booking && 'bg-terra-50/20')}>
                         {booking ? (
                           <DraggableCard booking={booking} onSelect={setSelected} />
                         ) : valid && !isPast ? (
@@ -558,12 +558,12 @@ export default function TurnosPage() {
                 <div className="flex items-center px-1">
                   <ArrowRight className="w-4 h-4 text-stone-300" />
                 </div>
-                <div className="flex-1 bg-emerald-50 rounded-xl p-3 text-center border border-emerald-200">
-                  <p className="text-[10px] text-emerald-600 font-semibold uppercase tracking-wide mb-1">Después</p>
-                  <p className="text-xs text-emerald-600 capitalize">
+                <div className="flex-1 bg-terra-50 rounded-xl p-3 text-center border border-terra-200">
+                  <p className="text-[10px] text-terra-600 font-semibold uppercase tracking-wide mb-1">Después</p>
+                  <p className="text-xs text-terra-600 capitalize">
                     {format(new Date(pendingMove.targetDate + 'T00:00:00'), "EEE d MMM", { locale: es })}
                   </p>
-                  <p className="text-lg font-bold text-emerald-700">{String(pendingMove.targetHour).padStart(2,'0')}:00</p>
+                  <p className="text-lg font-bold text-terra-700">{String(pendingMove.targetHour).padStart(2,'0')}:00</p>
                 </div>
               </div>
 
@@ -571,7 +571,7 @@ export default function TurnosPage() {
                 <Button variant="outline" onClick={() => { setConfirmMoveOpen(false); setPendingMove(null) }} className="flex-1 rounded-xl">
                   Cancelar
                 </Button>
-                <Button onClick={confirmMove} disabled={moveLoading} className="flex-1 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white gap-2">
+                <Button onClick={confirmMove} disabled={moveLoading} className="flex-1 rounded-xl bg-terra-500 hover:bg-terra-600 text-white gap-2">
                   {moveLoading && <Loader2 className="w-4 h-4 animate-spin" />}
                   Confirmar
                 </Button>
@@ -651,11 +651,11 @@ export default function TurnosPage() {
       {/* ── New booking dialog ── */}
       <Dialog open={newOpen} onOpenChange={setNewOpen}>
         <DialogContent className="max-w-md p-0 overflow-hidden rounded-2xl border-0 shadow-2xl">
-          <div className="bg-gradient-to-r from-emerald-600 to-teal-500 p-5">
+          <div className="bg-gradient-to-r from-terra-700 to-terra-900 p-5">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-white font-bold text-lg">Nuevo turno</h2>
-                <p className="text-emerald-100 text-sm">Completá los datos del cliente</p>
+                <p className="text-terra-100 text-sm">Completá los datos del cliente</p>
               </div>
               <button onClick={() => setNewOpen(false)} className="text-white/70 hover:text-white p-1"><X className="w-5 h-5" /></button>
             </div>
@@ -685,7 +685,7 @@ export default function TurnosPage() {
                       {availableSlots.map(sl => (
                         <button key={sl.s} onClick={() => setFormSlot(sl.s)}
                           className={cn('flex items-center justify-center gap-2 py-2.5 rounded-xl border-2 text-sm font-medium transition-all',
-                            formSlot === sl.s ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-stone-200 text-stone-600 hover:border-emerald-300')}>
+                            formSlot === sl.s ? 'border-terra-500 bg-terra-50 text-terra-700' : 'border-stone-200 text-stone-600 hover:border-terra-300')}>
                           <Clock className="w-3.5 h-3.5" /> {sl.s} – {sl.e}
                         </button>
                       ))}
@@ -715,7 +715,7 @@ export default function TurnosPage() {
           <div className="p-4 border-t border-stone-100 flex gap-2 bg-stone-50">
             <Button variant="outline" onClick={() => setNewOpen(false)} className="flex-1 rounded-xl">Cancelar</Button>
             <Button onClick={handleCreate} disabled={formLoading}
-              className="flex-1 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white gap-2">
+              className="flex-1 rounded-xl bg-gradient-to-r from-terra-600 to-terra-800 hover:from-terra-700 hover:to-terra-900 text-white gap-2">
               {formLoading && <Loader2 className="w-4 h-4 animate-spin" />}
               Confirmar turno
             </Button>

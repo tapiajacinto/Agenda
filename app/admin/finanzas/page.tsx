@@ -128,7 +128,7 @@ export default function FinanzasPage() {
     return (
       <AdminShell>
         <div className="flex items-center justify-center h-64">
-          <div className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-terra-500 border-t-transparent rounded-full animate-spin" />
         </div>
       </AdminShell>
     )
@@ -151,7 +151,7 @@ export default function FinanzasPage() {
             icon={<DollarSign className="w-5 h-5" />}
             diff={revenueDiff}
             sub="vs. mes anterior"
-            color="emerald"
+            color="terra"
           />
           <StatCard
             label="Turnos confirmados"
@@ -165,7 +165,7 @@ export default function FinanzasPage() {
             label="Esta semana"
             value={fmt(weekRevenue)}
             icon={<BarChart2 className="w-5 h-5" />}
-            color="teal"
+            color="terra"
           />
           <StatCard
             label="Promedio por turno"
@@ -185,14 +185,14 @@ export default function FinanzasPage() {
                 const isCurrent = i === historyData.length - 1
                 return (
                   <div key={m.label} className="flex-1 flex flex-col items-center gap-2">
-                    <span className={cn('text-xs font-bold', isCurrent ? 'text-emerald-600' : 'text-stone-400')}>
+                    <span className={cn('text-xs font-bold', isCurrent ? 'text-terra-600' : 'text-stone-400')}>
                       {m.revenue > 0 ? fmt(m.revenue).replace('ARS', '').trim() : '—'}
                     </span>
                     <div className="w-full flex items-end" style={{ height: '80px' }}>
                       <div
                         className={cn(
                           'w-full rounded-t-lg transition-all duration-700',
-                          isCurrent ? 'bg-emerald-500' : 'bg-stone-200'
+                          isCurrent ? 'bg-terra-500' : 'bg-stone-200'
                         )}
                         style={{ height: `${Math.max(h, 4)}%` }}
                       />
@@ -267,10 +267,10 @@ export default function FinanzasPage() {
                 {historyData.map((m, i) => {
                   const isCurrent = i === historyData.length - 1
                   return (
-                    <tr key={m.label} className={cn('border-b border-stone-50 last:border-0', isCurrent && 'bg-emerald-50/50')}>
-                      <td className={cn('py-3 font-medium capitalize', isCurrent ? 'text-emerald-700' : 'text-stone-700')}>
+                    <tr key={m.label} className={cn('border-b border-stone-50 last:border-0', isCurrent && 'bg-terra-50/50')}>
+                      <td className={cn('py-3 font-medium capitalize', isCurrent ? 'text-terra-700' : 'text-stone-700')}>
                         {m.label}
-                        {isCurrent && <span className="ml-2 text-[10px] bg-emerald-100 text-emerald-600 px-1.5 py-0.5 rounded-full font-semibold">actual</span>}
+                        {isCurrent && <span className="ml-2 text-[10px] bg-terra-100 text-terra-600 px-1.5 py-0.5 rounded-full font-semibold">actual</span>}
                       </td>
                       <td className="py-3 text-right text-stone-600">{m.count}</td>
                       <td className="py-3 text-right font-semibold text-stone-800">{m.revenue > 0 ? fmt(m.revenue) : '—'}</td>
@@ -295,9 +295,8 @@ function StatCard({
   label: string; value: string; icon: React.ReactNode; diff?: number; sub?: string; color?: string
 }) {
   const colors = {
-    emerald: 'bg-emerald-50 text-emerald-600',
+    terra: 'bg-terra-50 text-terra-600',
     violet: 'bg-violet-50 text-violet-600',
-    teal: 'bg-teal-50 text-teal-600',
     stone: 'bg-stone-100 text-stone-500',
   }[color] ?? 'bg-stone-100 text-stone-500'
 
@@ -308,7 +307,7 @@ function StatCard({
         {diff !== undefined && (
           <div className={cn(
             'flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-full',
-            diff > 0 ? 'bg-emerald-50 text-emerald-600' : diff < 0 ? 'bg-red-50 text-red-500' : 'bg-stone-100 text-stone-400'
+            diff > 0 ? 'bg-terra-50 text-terra-600' : diff < 0 ? 'bg-red-50 text-red-500' : 'bg-stone-100 text-stone-400'
           )}>
             {diff > 0 ? <TrendingUp className="w-3 h-3" /> : diff < 0 ? <TrendingDown className="w-3 h-3" /> : <Minus className="w-3 h-3" />}
             {Math.abs(diff)}%

@@ -68,7 +68,7 @@ export default function AnunciosPage() {
             <h1 className="text-2xl font-bold text-stone-800">Anuncios y Promociones</h1>
             <p className="text-stone-500 text-sm mt-1">Gestión de novedades que se muestran en el sitio</p>
           </div>
-          <Button className="bg-emerald-600 hover:bg-emerald-700 gap-2" onClick={() => setOpen(true)}>
+          <Button className="bg-terra-600 hover:bg-terra-700 gap-2" onClick={() => setOpen(true)}>
             <Plus className="w-4 h-4" /> Nuevo anuncio
           </Button>
           <Dialog open={open} onOpenChange={setOpen}>
@@ -94,7 +94,7 @@ export default function AnunciosPage() {
                   <Label>Enlace (opcional)</Label>
                   <Input value={form.link} onChange={(e) => setForm({ ...form, link: e.target.value })} placeholder="https://..." />
                 </div>
-                <Button onClick={save} disabled={saving} className="w-full bg-emerald-600 hover:bg-emerald-700">
+                <Button onClick={save} disabled={saving} className="w-full bg-terra-600 hover:bg-terra-700">
                   {saving ? 'Guardando...' : 'Publicar anuncio'}
                 </Button>
               </div>
@@ -116,7 +116,7 @@ export default function AnunciosPage() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-2">
                       <CardTitle className="text-base">{item.title}</CardTitle>
-                      <Badge variant={item.active ? 'default' : 'secondary'} className={item.active ? 'bg-emerald-500 text-white' : ''}>
+                      <Badge variant={item.active ? 'default' : 'secondary'} className={item.active ? 'bg-terra-500 text-white' : ''}>
                         {item.active ? 'Activo' : 'Oculto'}
                       </Badge>
                     </div>
@@ -138,7 +138,7 @@ export default function AnunciosPage() {
                     )}
                     <div>
                       <p className="text-sm text-stone-600">{item.content}</p>
-                      {item.link && <a href={item.link} className="text-xs text-emerald-600 underline mt-1 inline-block">{item.link}</a>}
+                      {item.link && <a href={item.link} className="text-xs text-terra-600 underline mt-1 inline-block">{item.link}</a>}
                     </div>
                   </div>
                 </CardContent>

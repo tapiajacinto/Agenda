@@ -32,12 +32,12 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-900 to-teal-800 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-terra-900 to-terra-700 p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="p-3 bg-emerald-100 rounded-full">
-              <Flower2 className="w-8 h-8 text-emerald-600" />
+            <div className="p-3 bg-terra-100 rounded-full">
+              <Flower2 className="w-8 h-8 text-terra-600" />
             </div>
           </div>
           <h1 className="text-xl font-bold text-stone-800">Panel de Administración</h1>
@@ -55,12 +55,12 @@ export default function AdminLoginPage() {
               required
             />
           </div>
-          <Button type="submit" disabled={loading} className="w-full bg-emerald-600 hover:bg-emerald-700">
+          <Button type="submit" disabled={loading} className="w-full bg-terra-600 hover:bg-terra-700">
             {loading ? 'Verificando...' : 'Ingresar'}
           </Button>
         </form>
         <div className="mt-6 text-center">
-          <a href="/" className="text-xs text-stone-400 hover:text-emerald-600">← Volver al inicio</a>
+          <a href="/" className="text-xs text-stone-400 hover:text-terra-600">← Volver al inicio</a>
         </div>
       </div>
     </div>

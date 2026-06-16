@@ -63,7 +63,7 @@ export default function MensajesPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-emerald-600" /> Mensaje de confirmación
+              <MessageSquare className="w-4 h-4 text-terra-600" /> Mensaje de confirmación
             </CardTitle>
             <CardDescription>
               Usá las variables: <code className="bg-stone-100 px-1 rounded text-xs">{'{nombre}'}</code>{' '}
@@ -84,10 +84,10 @@ export default function MensajesPage() {
             </div>
 
             {preview && (
-              <div className="p-4 bg-emerald-50 border border-emerald-100 rounded-xl">
+              <div className="p-4 bg-terra-50 border border-terra-100 rounded-xl">
                 <div className="flex items-center gap-2 mb-2">
-                  <Info className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-xs font-medium text-emerald-700">Vista previa del mensaje</span>
+                  <Info className="w-3.5 h-3.5 text-terra-600" />
+                  <span className="text-xs font-medium text-terra-700">Vista previa del mensaje</span>
                 </div>
                 <p className="text-sm text-stone-700 whitespace-pre-wrap">{preview}</p>
               </div>
@@ -109,7 +109,7 @@ export default function MensajesPage() {
           </CardContent>
         </Card>
 
-        <Button onClick={save} disabled={saving} className="bg-emerald-600 hover:bg-emerald-700 gap-2">
+        <Button onClick={save} disabled={saving} className="bg-terra-600 hover:bg-terra-700 gap-2">
           <Save className="w-4 h-4" />
           {saving ? 'Guardando...' : 'Guardar cambios'}
         </Button>

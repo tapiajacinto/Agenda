@@ -83,8 +83,8 @@ export function StepSchedule({ selectedDate, selectedTime, onSelectDate, onSelec
                           booked
                             ? 'border-stone-100 bg-stone-50 text-stone-300 cursor-not-allowed'
                             : selected
-                            ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
-                            : 'border-stone-200 bg-white text-stone-700 hover:border-emerald-400 hover:bg-emerald-50'
+                            ? 'border-terra-500 bg-terra-50 text-terra-700'
+                            : 'border-stone-200 bg-white text-stone-700 hover:border-terra-400 hover:bg-terra-50'
                         )}
                       >
                         <Clock className="w-4 h-4 shrink-0" />

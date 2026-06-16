@@ -34,8 +34,8 @@ export function StepConfirm({
     return (
       <div className="text-center space-y-6 py-4">
         <div className="flex justify-center">
-          <div className="p-4 bg-emerald-100 rounded-full">
-            <CheckCircle2 className="w-16 h-16 text-emerald-500" />
+          <div className="p-4 bg-terra-100 rounded-full">
+            <CheckCircle2 className="w-16 h-16 text-terra-500" />
           </div>
         </div>
         <div>
@@ -97,7 +97,7 @@ export function StepConfirm({
 function Detail({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-emerald-600">{icon}</span>
+      <span className="text-terra-600">{icon}</span>
       <span className="text-sm text-stone-500 w-20 shrink-0">{label}</span>
       <span className="text-sm font-medium text-stone-800">{value}</span>
     </div>

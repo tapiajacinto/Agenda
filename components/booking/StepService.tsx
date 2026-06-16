@@ -12,8 +12,8 @@ interface Props {
 }
 
 const iconMap: Record<string, React.ReactNode> = {
-  lotus: <Flower2 className="w-10 h-10 text-emerald-600" />,
-  hands: <Hand className="w-10 h-10 text-emerald-600" />,
+  lotus: <Flower2 className="w-10 h-10 text-terra-600" />,
+  hands: <Hand className="w-10 h-10 text-terra-600" />,
 }
 
 export function StepService({ services, selected, onSelect }: Props) {
@@ -29,15 +29,15 @@ export function StepService({ services, selected, onSelect }: Props) {
             key={service.id}
             onClick={() => onSelect(service)}
             className={cn(
-              'cursor-pointer transition-all border-2 hover:border-emerald-400 hover:shadow-md',
+              'cursor-pointer transition-all border-2 hover:border-terra-400 hover:shadow-md',
               selected?.id === service.id
-                ? 'border-emerald-500 bg-emerald-50 shadow-md'
+                ? 'border-terra-500 bg-terra-50 shadow-md'
                 : 'border-stone-200'
             )}
           >
             <CardHeader className="items-center text-center pb-2">
-              <div className="p-3 bg-emerald-100 rounded-full mb-2">
-                {iconMap[service.icon] ?? <Flower2 className="w-10 h-10 text-emerald-600" />}
+              <div className="p-3 bg-terra-100 rounded-full mb-2">
+                {iconMap[service.icon] ?? <Flower2 className="w-10 h-10 text-terra-600" />}
               </div>
               <CardTitle className="text-xl text-stone-800">{service.name}</CardTitle>
             </CardHeader>
